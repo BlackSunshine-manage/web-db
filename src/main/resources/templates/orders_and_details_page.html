@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>orders_and_details_page</title>
+    <script  th:inline="javascript" type="text/javascript"></script>
+</head>
+<body>
+<h1 th:text="${local_time}"></h1>
+<h2>
+    <table>
+        <tr th:each="order: ${orders}">
+
+                <td th:text="${order.id}" />
+                <td th:text="${order.orderName}" />
+                <td th:text="${order.orderAddress}" />
+                <td th:text="${order.sumOrder}" />
+        <table align="center">
+        <tr th:each="item: ${order.detailsOrder}">
+
+                <td th:text="${item.productName}" />
+                <td th:text="${item.productSerialNumber}" />
+                <td th:text="${item.productQuantity}" />
+        </tr>
+        </table>
+            <hr/>
+    </table>
+</h2>
+</body>
+</html>
